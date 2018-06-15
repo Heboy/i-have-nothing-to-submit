@@ -30,7 +30,7 @@ fs.appendFile(path.resolve(__dirname, '../1.txt'), new Date(), err => {
     cmd.stderr.on('data', error => {
       logger.log({
         level: 'error',
-        message: err
+        message: error
       })
     })
 
