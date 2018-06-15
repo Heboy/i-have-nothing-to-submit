@@ -28,7 +28,7 @@ fs.appendFile(path.resolve(__dirname, '../1.txt'), new Date(), err => {
     })
 
     cmd.stderr.on('data', error => {
-      console.log(error)
+      console.log(error.toString())
       logger.log({
         level: 'error',
         message: error
