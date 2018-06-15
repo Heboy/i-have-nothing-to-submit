@@ -22,19 +22,18 @@ fs.appendFile(path.resolve(__dirname, '../1.txt'), new Date(), err => {
     })
   }
   else {
-    let cmd = exec('npm run git');
-    cmd.stdout.on('data', (result) => {
-      console.log(result.toString())
-    })
-
-    cmd.stderr.on('data', error => {
-      console.log(error.toString())
-      logger.log({
-        level: 'error',
-        message: error
-      })
-    })
-
+    let cmd = exec('npm run git', (error, stdout, stderr)=>{
+      if(error){
+        logger.log({
+          level: 'error',
+          message: error.toString()
+        })
+      }
+      else{
+        console.log(stdout.toString())
+        console.log(stderr.toString())
+      }
+    });
   }
 })
 
