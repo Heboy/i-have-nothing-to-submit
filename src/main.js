@@ -1,5 +1,5 @@
 const winston = require('winston');
-const { spawn } = require('child_process');
+const { exec } = require('child_process');
 const fs = require('fs');
 const path = require('path');
 
@@ -22,7 +22,7 @@ fs.appendFile(path.resolve(__dirname, '../1.txt'), new Date(), err => {
     })
   }
   else {
-    let cmd = spawn('npm', ['run', 'git']);
+    let cmd = exec('npm run git');
     cmd.stdout.on('data', (result) => {
       console.log(result.toString())
     })
