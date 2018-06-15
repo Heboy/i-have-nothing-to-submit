@@ -1,9 +1,8 @@
+#!/usr/bin/env node
 const winston = require('winston');
 const { exec } = require('child_process');
 const fs = require('fs');
 const path = require('path');
-
-
 
 const logger = winston.createLogger({
   level: 'info',
