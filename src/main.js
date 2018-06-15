@@ -36,4 +36,3 @@ fs.appendFile(path.resolve(__dirname, '../1.txt'), `${new Date()}\n`, err => {
     });
   }
 })
-
