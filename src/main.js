@@ -13,7 +13,7 @@ const logger = winston.createLogger({
   ]
 });
 
-fs.appendFile(path.resolve(__dirname, '../1.txt'), new Date(), err => {
+fs.appendFile(path.resolve(__dirname, '../1.txt'), `${new Date()}\n`, err => {
   if (err) {
     // err handle
     logger.log({
