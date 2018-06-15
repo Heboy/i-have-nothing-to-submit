@@ -1,0 +1,22 @@
+{
+  "name": "i-have-nothing-to-submit",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "git": "git add . && git commit -m 'update' && git push origin"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Heboy/i-have-nothing-to-submit.git"
+  },
+  "author": "赵壮实",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Heboy/i-have-nothing-to-submit/issues"
+  },
+  "homepage": "https://github.com/Heboy/i-have-nothing-to-submit#readme",
+  "dependencies": {
+    "winston": "^3.0.0"
+  }
+}
