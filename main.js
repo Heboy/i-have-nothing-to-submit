@@ -12,7 +12,7 @@ const logger = winston.createLogger({
   ]
 });
 
-let cmd = exec('npm run git', (error, stdout, stderr)=>{
+exec('npm run git', (error, stdout, stderr)=>{
   if(error){
     logger.log({
       level: 'error',
