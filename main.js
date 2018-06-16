@@ -8,7 +8,6 @@ const path = require('path');
 const logger = winston.createLogger({
   level: 'info',
   format: combine(
-    label({ label: 'right meow!' }),
     timestamp(),
     prettyPrint()
   ),
@@ -18,10 +17,6 @@ const logger = winston.createLogger({
 });
 
 fs.appendFile(path.resolve(__dirname, './1.txt'), `${new Date()}\n`, err => {
-  logger.log({
-    level: 'error',
-    message: 'err666'
-  })
   if (err) {
     // err handle
     logger.log({
