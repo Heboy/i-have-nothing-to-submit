@@ -12,23 +12,22 @@ const logger = winston.createLogger({
   ]
 });
 
-exec('npm run git', (error, stdout, stderr)=>{
-  if(error){
+fs.appendFile(path.resolve(__dirname, './1.txt'), `${new Date()}\n`, err => {
+  if (err) {
+    // err handle
     logger.log({
       level: 'error',
-      message: error.toString()
+      message: err
     })
   }
-  else{
-    fs.appendFile(path.resolve(__dirname, './1.txt'), `${new Date()}\n`, err => {
-      if (err) {
-        // err handle
+  else {
+    exec('npm run git', (error, stdout, stderr) => {
+      if (error) {
         logger.log({
           level: 'error',
-          message: err
+          message: error.toString()
         })
       }
-    })
+    });
   }
-});
-
+})
