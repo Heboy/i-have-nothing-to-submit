@@ -1,14 +1,18 @@
 #!/usr/bin/env node
 const winston = require('winston');
+const { combine, timestamp, label, prettyPrint } = winston.format;
 const { exec } = require('child_process');
 const fs = require('fs');
 const path = require('path');
 
 const logger = winston.createLogger({
   level: 'info',
-  format: winston.format.json(),
+  format: combine(
+    label({ label: 'right meow!' }),
+    timestamp(),
+    prettyPrint()
+  ),
   transports: [
-    new winston.transports.Console({ timestamp: true }),
     new winston.transports.File({ filename: 'error.log', level: 'error', })
   ]
 });
@@ -16,7 +20,7 @@ const logger = winston.createLogger({
 fs.appendFile(path.resolve(__dirname, './1.txt'), `${new Date()}\n`, err => {
   logger.log({
     level: 'error',
-    message: 'err'
+    message: 'err666'
   })
   if (err) {
     // err handle
