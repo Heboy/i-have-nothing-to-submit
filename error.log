@@ -1,0 +1,4 @@
+{ level: 'error',
+  message: 'Error: Command failed: git pull origin master\nFrom github.com:Heboy/i-have-nothing-to-submit\n * branch            master     -> FETCH_HEAD\n',
+  timestamp: '2018-06-19T05:40:14.074Z',
+  [Symbol(level)]: 'error' }
