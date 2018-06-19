@@ -20,7 +20,6 @@ const logger = winston.createLogger({
 const appendFilePromise = util.promisify(fs.appendFile);
 const execPromise = util.promisify(exec);
 
-execPromise('cd')
 appendFilePromise(path.resolve(__dirname, './1.txt'), `${new Date()}\n`).then(result => {
   return execPromise('git add .', {cwd: __dirname})
 }).then(result => {
