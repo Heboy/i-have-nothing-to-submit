@@ -13,21 +13,22 @@ const logger = winston.createLogger({
     prettyPrint()
   ),
   transports: [
-    new winston.transports.File({ filename: 'error.log', level: 'error', })
+    new winston.transports.File({ filename: path.resolve(__dirname, './error.log'), level: 'error', })
   ]
 });
 
 const appendFilePromise = util.promisify(fs.appendFile);
 const execPromise = util.promisify(exec);
 
+execPromise('cd')
 appendFilePromise(path.resolve(__dirname, './1.txt'), `${new Date()}\n`).then(result => {
-  return execPromise('git add .')
+  return execPromise('git add .', {cwd: __dirname})
 }).then(result => {
-  return execPromise(`git commit -m "${new Date()}"`)
+  return execPromise(`git commit -m "${new Date()}"`, {cwd: __dirname})
 }).then(result => {
-  return execPromise('git pull origin master')
+  return execPromise('git pull origin master', {cwd: __dirname})
 }).then(result => {
-  return execPromise('git push origin master')
+  return execPromise('git push origin master', {cwd: __dirname})
 }).catch(err => {
   logger.log({
     level: 'error',
