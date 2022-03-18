@@ -14,3 +14,7 @@
   message: 'Error: Command failed: git pull origin master\nConnection closed by 13.250.177.223\r\nfatal: Could not read from remote repository.\n\nPlease make sure you have the correct access rights\nand the repository exists.\n',
   timestamp: '2021-07-29T06:11:28.077Z',
   [Symbol(level)]: 'error' }
+{ level: 'error',
+  message: 'Error: Command failed: git pull origin master\nssh_exchange_identification: read: Connection timed out\r\nfatal: Could not read from remote repository.\n\nPlease make sure you have the correct access rights\nand the repository exists.\n',
+  timestamp: '2022-03-17T06:18:16.493Z',
+  [Symbol(level)]: 'error' }
